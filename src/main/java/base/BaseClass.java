@@ -1,22 +1,23 @@
 package base;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.Login_Page;
 import utils.ConfigReader;
 
 public class BaseClass {
 
 	public static WebDriver driver;
+	public static String username;
+	public static String password;
 
 	@BeforeSuite
 	public void launchBrowser() {
@@ -28,6 +29,8 @@ public class BaseClass {
 	            System.out.println("Browser or URL not found in config.properties!");
 	            return;
 	        }
+		 username = ConfigReader.getProperty("username");
+	        password = ConfigReader.getProperty("password");
 
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -43,6 +46,16 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	}
+	
+	public void perform_valid_login() {
+		Login_Page loginPage = new Login_Page(driver);
+
+		loginPage.enterEmail(username).enterPassword(password).clickLoginButton();
+
+		String successMessage = loginPage.validateLoginSuccessMessage();
+
+		Assert.assertEquals(successMessage, "login Successfully", "Login was not successful!");
 	}
 
 	@AfterSuite

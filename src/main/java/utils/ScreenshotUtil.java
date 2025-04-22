@@ -15,7 +15,7 @@ public class ScreenshotUtil {
     public static String takeScreenshot(WebDriver driver, String testName) {
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String screenshotName = testName + "_" + timestamp + ".png";
-        String screenshotPath = System.getProperty("user.dir") + "test-output/screenshots/" + screenshotName;
+        String screenshotPath = System.getProperty("user.dir") + "/test-output/screenshots/" + screenshotName;
 
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File destFile = new File(screenshotPath);
