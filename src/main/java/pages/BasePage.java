@@ -34,6 +34,10 @@ public abstract class BasePage {
 			return false;
 		}
 	}
+	
+	private boolean isElementPresent(By locator) {
+		return !driver.findElements(locator).isEmpty();
+	}
 
 	public void selectCountryCode(By dropdownLocator, String countryWithCode) {
 		try {

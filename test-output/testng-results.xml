@@ -1,100 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-22T16:03:59 IST" name="Default suite" finished-at="2025-04-22T16:04:46 IST" duration-ms="46778">
+  <suite started-at="2025-04-23T15:41:02 IST" name="Default suite" finished-at="2025-04-23T15:41:40 IST" duration-ms="37887">
     <groups>
     </groups>
-    <test started-at="2025-04-22T16:03:59 IST" name="Default test" finished-at="2025-04-22T16:04:46 IST" duration-ms="46778">
-      <class name="test.Employee_Bus_Attendant_Positive_Test">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:03:56 IST" name="launchBrowser" finished-at="2025-04-22T16:03:59 IST" duration-ms="2741" status="PASS">
+    <test started-at="2025-04-23T15:41:02 IST" name="Default test" finished-at="2025-04-23T15:41:40 IST" duration-ms="37887">
+      <class name="test.Employee_Gate_Keeper_Positive_Test">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:00 IST" name="launchBrowser" finished-at="2025-04-23T15:41:02 IST" duration-ms="2109" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="create_bus_attendant(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:03:59 IST" name="create_bus_attendant" data-provider="busAttendantData" finished-at="2025-04-22T16:04:13 IST" duration-ms="14089" status="PASS">
+        <test-method signature="create_gate_keeper(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:02 IST" name="create_gate_keeper" data-provider="createGateKeeperData" finished-at="2025-04-23T15:41:14 IST" duration-ms="11591" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[C:\Users\DELL\Pictures\Screenshots\Screenshot 2025-03-20 122344.png]]>
+                <![CDATA[C:\Users\DELL\Downloads\download (1).jpeg]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[BA300]]>
+                <![CDATA[GK01]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Ganesh]]>
+                <![CDATA[Mason]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[IND (+91)]]>
+                <![CDATA[UAE (+971)]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[1122334455]]>
+                <![CDATA[878787878]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[A+ve]]>
+                <![CDATA[A-ve]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[securePass123]]>
+                <![CDATA[12345678]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[+91 1122334455]]>
+                <![CDATA[+971 878787878]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- create_bus_attendant -->
-        <test-method signature="search_bus_attendant()[pri:1, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:04:14 IST" name="search_bus_attendant" finished-at="2025-04-22T16:04:17 IST" duration-ms="3518" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- search_bus_attendant -->
-        <test-method signature="update_bus_attendant(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:04:17 IST" name="update_bus_attendant" data-provider="updateBusAttendantData" finished-at="2025-04-22T16:04:29 IST" duration-ms="11944" status="PASS">
+        </test-method> <!-- create_gate_keeper -->
+        <test-method signature="update_driver(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:14 IST" name="update_driver" data-provider="udpateGateKeeperData" finished-at="2025-04-23T15:41:24 IST" duration-ms="10039" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[C:\Users\DELL\Pictures\Screenshots\Screenshot 2024-06-30 202523.png]]>
+                <![CDATA[C:\Users\DELL\Downloads\images (4).jpeg]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Ganesh Kumar]]>
+                <![CDATA[Smith]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[9988776655]]>
+                <![CDATA[989898989]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- update_bus_attendant -->
-        <test-method signature="download_bus_attendant_qr_code()[pri:3, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:04:29 IST" name="download_bus_attendant_qr_code" finished-at="2025-04-22T16:04:37 IST" duration-ms="8096" status="PASS">
+        </test-method> <!-- update_driver -->
+        <test-method signature="download_gate_keeper_qr_code()[pri:2, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:24 IST" name="download_gate_keeper_qr_code" finished-at="2025-04-23T15:41:32 IST" duration-ms="8032" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- download_bus_attendant_qr_code -->
-        <test-method signature="delete_bus_attendant()[pri:4, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:04:37 IST" name="delete_bus_attendant" finished-at="2025-04-22T16:04:46 IST" duration-ms="8842" status="PASS">
+        </test-method> <!-- download_gate_keeper_qr_code -->
+        <test-method signature="delete_gate_keeper()[pri:3, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:32 IST" name="delete_gate_keeper" finished-at="2025-04-23T15:41:40 IST" duration-ms="8038" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- delete_bus_attendant -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.Employee_Bus_Attendant_Positive_Test@1d483de4]" started-at="2025-04-22T16:04:46 IST" name="tearDown" finished-at="2025-04-22T16:04:46 IST" duration-ms="2" status="PASS">
+        </test-method> <!-- delete_gate_keeper -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:40 IST" name="tearDown" finished-at="2025-04-23T15:41:40 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- test.Employee_Bus_Attendant_Positive_Test -->
+      </class> <!-- test.Employee_Gate_Keeper_Positive_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

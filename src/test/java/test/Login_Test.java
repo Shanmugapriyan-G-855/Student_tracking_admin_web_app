@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
-import pages.Employee_Bus_Attendant_Page;
+import pages.Employees_Page;
 public class Login_Test extends BaseClass {
 
 	@Test
@@ -14,7 +14,7 @@ public class Login_Test extends BaseClass {
 
 	@Test
 	public void validLogin_display_company_logo() {
-		Employee_Bus_Attendant_Page logoPage = new Employee_Bus_Attendant_Page(driver);
+		Employees_Page logoPage = new Employees_Page(driver);
 
 		Assert.assertTrue(logoPage.isCompanyLogoVisible(),
 				"Company logo not visible after login. Login may have failed.");

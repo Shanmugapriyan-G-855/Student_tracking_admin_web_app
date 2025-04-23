@@ -3,17 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.Employee_Bus_Attendant_Positive_Test">
+      <class name="test.Employee_Gate_Keeper_Positive_Test">
         <methods>
           <include name="tearDown"/>
-          <include name="download_bus_attendant_qr_code"/>
-          <include name="delete_bus_attendant"/>
-          <include name="create_bus_attendant" invocation-numbers="0"/>
           <include name="launchBrowser"/>
-          <include name="update_bus_attendant" invocation-numbers="0"/>
-          <include name="search_bus_attendant"/>
+          <include name="update_driver" invocation-numbers="0"/>
         </methods>
-      </class> <!-- test.Employee_Bus_Attendant_Positive_Test -->
+      </class> <!-- test.Employee_Gate_Keeper_Positive_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
