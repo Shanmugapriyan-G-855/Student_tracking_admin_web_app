@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-23T15:41:02 IST" name="Default suite" finished-at="2025-04-23T15:41:40 IST" duration-ms="37887">
+  <suite started-at="2025-04-24T17:11:39 IST" name="Default suite" finished-at="2025-04-24T17:11:58 IST" duration-ms="19165">
     <groups>
     </groups>
-    <test started-at="2025-04-23T15:41:02 IST" name="Default test" finished-at="2025-04-23T15:41:40 IST" duration-ms="37887">
-      <class name="test.Employee_Gate_Keeper_Positive_Test">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:00 IST" name="launchBrowser" finished-at="2025-04-23T15:41:02 IST" duration-ms="2109" status="PASS">
+    <test started-at="2025-04-24T17:11:39 IST" name="Default test" finished-at="2025-04-24T17:11:58 IST" duration-ms="19165">
+      <class name="test.Student_Creation_Positive_Test">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:test.Student_Creation_Positive_Test@934b6cb]" started-at="2025-04-24T17:11:39 IST" name="launchBrowser" finished-at="2025-04-24T17:11:43 IST" duration-ms="3216" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="create_gate_keeper(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:02 IST" name="create_gate_keeper" data-provider="createGateKeeperData" finished-at="2025-04-23T15:41:14 IST" duration-ms="11591" status="PASS">
+        <test-method signature="Login()[pri:0, instance:test.Student_Creation_Positive_Test@934b6cb]" started-at="2025-04-24T17:11:43 IST" name="Login" finished-at="2025-04-24T17:11:45 IST" duration-ms="2550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="student_creation(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:test.Student_Creation_Positive_Test@934b6cb]" started-at="2025-04-24T17:11:45 IST" name="student_creation" data-provider="createStudentData" finished-at="2025-04-24T17:11:58 IST" duration-ms="13211" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[C:\Users\DELL\Downloads\download (1).jpeg]]>
+                <![CDATA[C:\Users\DELL\Downloads\images (7).jpeg]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[GK01]]>
+                <![CDATA[STD1001]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Mason]]>
+                <![CDATA[Hanshika]]>
               </value>
             </param>
             <param index="3">
@@ -35,62 +39,73 @@
             </param>
             <param index="4">
               <value>
-                <![CDATA[878787878]]>
+                <![CDATA[989898989]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[A-ve]]>
+                <![CDATA[IND (+91)]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[12345678]]>
+                <![CDATA[9887766555]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[+971 878787878]]>
+                <![CDATA[1-A]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[AB-ve]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2002-05-23]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Female]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[januexample@gmail.com]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[United Arab Emirates]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[2/84,Nehru Street]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[School Bus]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Kumalan Kuttai]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- create_gate_keeper -->
-        <test-method signature="update_driver(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:14 IST" name="update_driver" data-provider="udpateGateKeeperData" finished-at="2025-04-23T15:41:24 IST" duration-ms="10039" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C:\Users\DELL\Downloads\images (4).jpeg]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Smith]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[989898989]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- update_driver -->
-        <test-method signature="download_gate_keeper_qr_code()[pri:2, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:24 IST" name="download_gate_keeper_qr_code" finished-at="2025-04-23T15:41:32 IST" duration-ms="8032" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- download_gate_keeper_qr_code -->
-        <test-method signature="delete_gate_keeper()[pri:3, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:32 IST" name="delete_gate_keeper" finished-at="2025-04-23T15:41:40 IST" duration-ms="8038" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- delete_gate_keeper -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.Employee_Gate_Keeper_Positive_Test@1d483de4]" started-at="2025-04-23T15:41:40 IST" name="tearDown" finished-at="2025-04-23T15:41:40 IST" duration-ms="3" status="PASS">
+        </test-method> <!-- student_creation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.Student_Creation_Positive_Test@934b6cb]" started-at="2025-04-24T17:11:58 IST" name="tearDown" finished-at="2025-04-24T17:11:58 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- test.Employee_Gate_Keeper_Positive_Test -->
+      </class> <!-- test.Student_Creation_Positive_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

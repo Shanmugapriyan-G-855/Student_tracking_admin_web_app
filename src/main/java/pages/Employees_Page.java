@@ -1,6 +1,15 @@
 package pages;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -46,21 +55,48 @@ public class Employees_Page extends BasePage {
 			.xpath("//div[contains(text(),'Bus Attendant details updated successfully')]");
 	private By BusAttendantDeleteSuccessMsg = By
 			.xpath("//div[contains(text(),'Bus Attendant details deleted Successfully')]");
-	private By BaDownloadCloseButton = By.xpath("(//*[name()='svg'][@role='img'])[25]");
 
 	private By driverHeader = By.xpath("//p[normalize-space()='Driver']");
 	private By driverName = By.xpath("//input[@name='driver_name']");
 	private By driverCreateSuccessMsg = By.xpath("//div[contains(text(),'Driver detail created Successfully')]");
 	private By driverUpdateSuccessMsg = By.xpath("//div[contains(text(),'Driver updated successfully')]");
 	private By driverDeleteSuccessMsg = By.xpath("//div[contains(text(),'Driver details deleted Successfully')]");
-	private By driverDownloadCloseButton = By.xpath("(//div[@class='pointer '])[2]");
+	private By DownloadCloseButton = By.xpath("(//div[@class='pointer '])[2]");
 
 	private By gateKeeperHeader = By.xpath("//p[normalize-space()='Gate Keeper']");
 	private By gateKeeperName = By.xpath("//input[@name='gate_keeper_name']");
-	private By gateKeeperCreateSuccessMsg = By.xpath("//div[contains(text(),'Gate keeper detail created Successfully')]");
-	private By gateKeeperUpdateSuccessMsg = By.xpath("//div[contains(text(),'Gate keeper details updated successfully')]");
-	private By gateKeeperDeleteSuccessMsg = By.xpath("//div[contains(text(),'Gate keeper details deleted Successfully')]");
-	
+	private By gateKeeperCreateSuccessMsg = By
+			.xpath("//div[contains(text(),'Gate keeper detail created Successfully')]");
+	private By gateKeeperUpdateSuccessMsg = By
+			.xpath("//div[contains(text(),'Gate keeper details updated successfully')]");
+	private By gateKeeperDeleteSuccessMsg = By
+			.xpath("//div[contains(text(),'Gate keeper details deleted Successfully')]");
+
+	private By teacherHeader = By.xpath("//p[normalize-space()='Teacher']");
+	private By teacherName = By.xpath("//input[@name='teacher_name']");
+	private By teacherCreateSuccessMsg = By.xpath("//div[contains(text(),'Teacher detail created Successfully')]");
+	private By teacherUpdateSuccessMsg = By.xpath("//div[contains(text(),'Teacher updated successfully')]");
+	private By teacherDeleteSuccessMsg = By.xpath("//div[contains(text(),'Teacher details deleted Successfully')]");
+
+	private By transportOfficerHeader = By.xpath("//p[normalize-space()='Transport Officer']");
+	private By transportOfficerName = By.xpath("//input[@name='transport_officer_name']");
+	private By transportOfficerCreateSuccessMsg = By
+			.xpath("//div[contains(text(),'transport_officer details created Successfully')]");
+	private By transportOfficerUpdateSuccessMsg = By
+			.xpath("//div[contains(text(),'transport_officer details updated successfully')]");
+	private By transportOfficerDeleteSuccessMsg = By
+			.xpath("//div[contains(text(),'transport_officer details deleted Successfully')]");
+	private By TODownloadCloseButton = By.xpath("(//div[@class='pointer '])[3]");
+
+	private By bulkUploadBtn = By.xpath("(//span[@class='ps-2 upload-txt'])[1]");
+	private By downloadTemplateBtn = By.xpath("//p[@class='download-template']");
+	private By uploadExcelFileBtn = By.xpath("(//span[contains(text(),'Upload')])[3]");
+	private By uploadExcelFile = By.xpath("(//input[@type='file'])[2]");
+	private By verifyUploadedFileName = By.xpath("(//p[@class='file-name'])[1]");
+	private String uploadedFilePath;
+	private By confirmUploadButton = By.xpath("//button[contains(text(),'Upload')]");
+	private By validateFileUploadedSuccessfullyMsg = By.xpath("//div[contains(text(),'File uploaded Sucessfully')]");
+
 	public Employees_Page(WebDriver driver) {
 		super(driver);
 	}
@@ -144,8 +180,6 @@ public class Employees_Page extends BasePage {
 		boolean isIdPresent = firstRowText.contains(expectedId);
 		Assert.assertTrue(isIdPresent, "Search result not found ");
 	}
-	
-	
 
 	public void click_edit_button() {
 		click(empEditButton);
@@ -166,30 +200,6 @@ public class Employees_Page extends BasePage {
 
 	public void click_download_as_png_button() {
 		click(empDownloadButton);
-	}
-
-	/*public void verify_bus_attendant_qr_file_is_downloaded() {
-		String downloadPath = "C:\\Users\\DELL\\Downloads";
-
-		File folder = new File(downloadPath);
-
-		File[] files = folder.listFiles((dir, name) -> name.startsWith("INS004_N_QR_") && name.endsWith(".png"));
-
-		Assert.assertNotNull(files, "Download folder is empty or not accessible");
-
-		Assert.assertTrue(files.length > 0, "No PNG files found in the folder");
-
-		File downloadedFile = files[files.length - 1];
-
-		Assert.assertTrue(downloadedFile.exists(), "Downloaded file does not exist");
-
-		Assert.assertTrue(downloadedFile.length() > 0, "Downloaded file is empty");
-
-		logger.info("File downloaded successfully: " + downloadedFile.getName());
-	}*/
-
-	public void click_download_qr_close_button_Bus_attendant() {
-		click(BaDownloadCloseButton);
 	}
 
 	private String validateSuccessMessage(By locator, String expectedMessage) {
@@ -258,28 +268,8 @@ public class Employees_Page extends BasePage {
 		verify_employee_created(expectedId, expectedMobileNumber);
 	}
 
-/*	public void verify_driver_qr_file_is_downloaded() {
-		String downloadPath = "C:\\Users\\DELL\\Downloads";
-
-		File folder = new File(downloadPath);
-
-		File[] files = folder.listFiles((dir, name) -> name.startsWith("INS004_D_QR_") && name.endsWith(".png"));
-
-		Assert.assertNotNull(files, "Download folder is empty or not accessible");
-
-		Assert.assertTrue(files.length > 0, "No PNG files found in the folder");
-
-		File downloadedFile = files[files.length - 1];
-
-		Assert.assertTrue(downloadedFile.exists(), "Downloaded file does not exist");
-
-		Assert.assertTrue(downloadedFile.length() > 0, "Downloaded file is empty");
-
-		logger.info("File downloaded successfully: " + downloadedFile.getName());
-	}*/
-
-	public void click_download_qr_close_button_driver() {
-		click(driverDownloadCloseButton);
+	public void click_download_qr_close_button() {
+		click(DownloadCloseButton);
 	}
 
 	public void click_gate_keeper_header() {
@@ -293,54 +283,163 @@ public class Employees_Page extends BasePage {
 	public String validate_gate_keeper_create_success_msg() {
 		return validateSuccessMessage(gateKeeperCreateSuccessMsg, "Gate keeper detail created Successfully");
 	}
-	
+
 	public String validate_gate_keeper_update_success_message() {
 		return validateSuccessMessage(gateKeeperUpdateSuccessMsg, "Gate keeper details updated successfully");
 	}
-	
+
 	public String validate_gate_keeper_delete_success_message() {
-		return validateSuccessMessage(gateKeeperDeleteSuccessMsg,"Gate keeper details deleted Successfully");
+		return validateSuccessMessage(gateKeeperDeleteSuccessMsg, "Gate keeper details deleted Successfully");
 	}
 
 	public void verify_gate_keeper_created(String expectedId, String expectedMobileNumber) {
 		verify_employee_created(expectedId, expectedMobileNumber);
 	}
-	
-	public void click_download_qr_close_button_gate_keeper() {
-		click(driverDownloadCloseButton);
-	}
-	
 
+	public void verify_qr_file_is_downloaded(String prefix) {
+		String downloadPath = "C:\\Users\\DELL\\Downloads";
+		File folder = new File(downloadPath);
 
-	    public void verify_qr_file_is_downloaded(String prefix) {
-	        String downloadPath = "C:\\Users\\DELL\\Downloads";
-	        File folder = new File(downloadPath);
+		File[] files = folder.listFiles((dir, name) -> name.startsWith(prefix) && name.endsWith(".png"));
 
-	        File[] files = folder.listFiles((dir, name) -> name.startsWith(prefix) && name.endsWith(".png"));
+		assert files != null : "Download folder is empty or not accessible";
+		assert files.length > 0 : "No PNG files found with prefix: " + prefix;
 
-	        assert files != null : "Download folder is empty or not accessible";
-	        assert files.length > 0 : "No PNG files found with prefix: " + prefix;
+		File downloadedFile = files[files.length - 1];
 
-	        File downloadedFile = files[files.length - 1];
+		assert downloadedFile.exists() : "Downloaded file does not exist";
+		assert downloadedFile.length() > 0 : "Downloaded file is empty";
 
-	        assert downloadedFile.exists() : "Downloaded file does not exist";
-	        assert downloadedFile.length() > 0 : "Downloaded file is empty";
-
-	        System.out.println("File downloaded successfully: " + downloadedFile.getName());
-	    }
-
-	    public void verify_driver_qr_file_is_downloaded() {
-	        verify_qr_file_is_downloaded("INS004_D_QR_");
-	    }
-
-	    public void verify_bus_attendant_qr_file_is_downloaded() {
-	        verify_qr_file_is_downloaded("INS004_N_QR_");
-	    }
-	    
-	    public void verify_gate_keeper_qr_file_is_downloaded() {
-	    	verify_qr_file_is_downloaded("INS004_G_QR_");
-	    }
+		System.out.println("File downloaded successfully: " + downloadedFile.getName());
 	}
 
+	public void verify_driver_qr_file_is_downloaded() {
+		verify_qr_file_is_downloaded("INS004_D_QR_");
+	}
 
+	public void verify_bus_attendant_qr_file_is_downloaded() {
+		verify_qr_file_is_downloaded("INS004_N_QR_");
+	}
 
+	public void verify_gate_keeper_qr_file_is_downloaded() {
+		verify_qr_file_is_downloaded("INS004_G_QR_");
+	}
+
+	public void verify_teacher_qr_file_is_downloaded() {
+		verify_qr_file_is_downloaded("INS004_T_QR_");
+	}
+
+	public void verify_transport_officer_qr_file_is_downloaded() {
+		verify_qr_file_is_downloaded("INS004_TO_QR_");
+	}
+
+	public void click_teacher_header() {
+		click(teacherHeader);
+	}
+
+	public void enter_teacher_name(String name) {
+		type(teacherName, name);
+	}
+
+	public String validate_teacher_create_success_msg() {
+		return validateSuccessMessage(teacherCreateSuccessMsg, "Teacher detail created Successfully");
+	}
+
+	public String validate_teacher_update_success_message() {
+		return validateSuccessMessage(teacherUpdateSuccessMsg, "Teacher updated successfully");
+	}
+
+	public String validate_teacher_delete_success_message() {
+		return validateSuccessMessage(teacherDeleteSuccessMsg, "Teacher details deleted Successfully");
+	}
+
+	public void verify_teacher_created(String expectedId, String expectedMobileNumber) {
+		verify_employee_created(expectedId, expectedMobileNumber);
+	}
+
+	public void click_transport_officer_header() {
+		click(transportOfficerHeader);
+	}
+
+	public void enter_transport_officer_name(String name) {
+		type(transportOfficerName, name);
+	}
+
+	public String validate_transport_officer_create_success_msg() {
+		return validateSuccessMessage(transportOfficerCreateSuccessMsg,
+				"transport_officer details created Successfully");
+	}
+
+	public String validate_transport_officer_update_success_message() {
+		return validateSuccessMessage(transportOfficerUpdateSuccessMsg,
+				"transport_officer details updated successfully");
+	}
+
+	public String validate_transport_officer_delete_success_message() {
+		return validateSuccessMessage(transportOfficerDeleteSuccessMsg,
+				"transport_officer details deleted Successfully");
+	}
+
+	public void verify_transport_officer_created(String expectedId, String expectedMobileNumber) {
+		verify_employee_created(expectedId, expectedMobileNumber);
+	}
+
+	public void click_download_qr_close_button_transport_officer() {
+		click(TODownloadCloseButton);
+	}
+
+	public void click_upload_button() {
+		click(bulkUploadBtn);
+	}
+
+	public void click_download_template_button() throws InterruptedException {
+		Thread.sleep(1000);
+		click(downloadTemplateBtn);
+	}
+
+	public void verifyDownloadTemplate() {
+		String downloadPath = "C:\\Users\\DELL\\Downloads";
+		File folder = new File(downloadPath);
+
+		File[] files = folder.listFiles((dir, name) -> name.startsWith("download") && name.endsWith(".xlsx"));
+
+		assert files != null && files.length > 0 : "Template file not found in the download folder";
+
+		File downloadedFile = files[files.length - 1];
+
+		assert downloadedFile.exists() : "Downloaded template file does not exist";
+		assert downloadedFile.length() > 0 : "Downloaded template file is empty";
+
+		System.out.println("Template file downloaded successfully: " + downloadedFile.getName());
+
+	}
+
+	public void click_upload_xlsx_button() {
+		click(uploadExcelFileBtn);
+	}
+
+	public void upload_xlsx_file(String filePath) {
+		uploadedFilePath = filePath;
+		WebElement fileInput = driver.findElement(uploadExcelFile);
+		fileInput.sendKeys(filePath);
+	}
+
+	public void verify_uploaded_file_name() {
+		WebElement fileNameLabel = WaitUtils.waitForVisibility(verifyUploadedFileName);
+		String displayedFileName = fileNameLabel.getText();
+
+		String expectedFileName = new File(uploadedFilePath).getName();
+
+		Assert.assertTrue(displayedFileName.contains(expectedFileName),
+				"Uploaded file name not displayed correctly. Found: " + displayedFileName);
+	}
+
+	public void click_confirm_upload_button() {
+		click(confirmUploadButton);
+	}
+
+	public String validate_file_uploaded_successfully_message() {
+		return validateSuccessMessage(validateFileUploadedSuccessfullyMsg, "File uploaded Sucessfully");
+	}
+
+}

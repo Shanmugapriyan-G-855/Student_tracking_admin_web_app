@@ -14,7 +14,7 @@ public class Employee_Driver_Positive_Test extends BaseClass {
 
 		perform_valid_login();
 
-		Employees_Page create = new Employees_Page(driver);
+		Employees_Page create = new Employees_Page(BaseClass.getDriver());
 
 		create.click_driver_header();
 		create.click_AddNew_Button();
@@ -34,7 +34,7 @@ public class Employee_Driver_Positive_Test extends BaseClass {
 	public void update_driver(String updateImagePath, String updateName, String updateMobileNumber)
 			throws InterruptedException {
 
-		Employees_Page update = new Employees_Page(driver);
+		Employees_Page update = new Employees_Page(BaseClass.getDriver());
 
 		search_driver();
 
@@ -50,7 +50,7 @@ public class Employee_Driver_Positive_Test extends BaseClass {
 	@Test(priority = 2)
 	public void download_driver_qr_code() throws InterruptedException {
 
-		Employees_Page qr = new Employees_Page(driver);
+		Employees_Page qr = new Employees_Page(BaseClass.getDriver());
 
 		search_driver();
 
@@ -58,14 +58,14 @@ public class Employee_Driver_Positive_Test extends BaseClass {
 		Thread.sleep(1000);
 		qr.click_download_as_png_button();
 		Thread.sleep(3000);
-		qr.click_download_qr_close_button_driver();
+		qr.click_download_qr_close_button();
 		qr.verify_driver_qr_file_is_downloaded();
 	}
 
 	@Test(priority = 3)
 	public void delete_driver() throws InterruptedException {
 
-		Employees_Page delete = new Employees_Page(driver);
+		Employees_Page delete = new Employees_Page(BaseClass.getDriver());
 
 		search_driver();
 
@@ -78,7 +78,7 @@ public class Employee_Driver_Positive_Test extends BaseClass {
 
 	public void search_driver() throws InterruptedException {
 
-		Employees_Page search = new Employees_Page(driver);
+		Employees_Page search = new Employees_Page(BaseClass.getDriver());
 
 		search.select_search_option("Employee ID");
 		search.enter_id_in_search_input("DRIVER01");

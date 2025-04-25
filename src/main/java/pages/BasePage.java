@@ -10,7 +10,7 @@ public abstract class BasePage {
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
-		this.waitUtils = new WaitUtils(driver, 30);
+		this.waitUtils = new WaitUtils(driver, 60);
 	}
 
 	protected void click(By locator) {

@@ -1,1 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AllEmployeeTests">
+    <test name="EmployeeRoleTests">
+        <classes>
+            <class name="test.Employee_Bus_Attendant_Positive_Test"/>
+            <class name="test.Employee_Driver_Positive_Test"/>
+            <class name="test.Employee_Gate_Keeper_Positive_Test"/>
+            <class name="test.Employee_Teacher_Positive_Test"/>
+            <class name="test.Employee_Transport_Officer_Positive_Test"/>
+        </classes>
+    </test>
+</suite>

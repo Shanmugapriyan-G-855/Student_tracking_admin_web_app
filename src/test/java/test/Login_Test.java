@@ -14,7 +14,7 @@ public class Login_Test extends BaseClass {
 
 	@Test
 	public void validLogin_display_company_logo() {
-		Employees_Page logoPage = new Employees_Page(driver);
+		Employees_Page logoPage = new Employees_Page(BaseClass.getDriver());
 
 		Assert.assertTrue(logoPage.isCompanyLogoVisible(),
 				"Company logo not visible after login. Login may have failed.");
