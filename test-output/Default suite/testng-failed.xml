@@ -5,8 +5,8 @@
     <classes>
       <class name="test.Student_Creation_Positive_Test">
         <methods>
+          <include name="download_bus_attendant_qr_code"/>
           <include name="tearDown"/>
-          <include name="student_creation" invocation-numbers="0"/>
           <include name="launchBrowser"/>
         </methods>
       </class> <!-- test.Student_Creation_Positive_Test -->

@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -46,6 +48,18 @@ public class Students_Page extends BasePage {
 	By BusStop = By.xpath("//select[@name='stop_id']");
 	By saveBtn = By.xpath("//button[normalize-space()='Save']");
 	By studentCreateSuccessMsg = By.xpath("//div[contains(text(),'Student detail created Successfully')]");
+	By SearchstudentId = By.xpath("(//select[@class='sc-dcJsrY cISxAM w-100'])[1]");
+	By searchInput = By.xpath("//input[@placeholder='Search...']");
+	By StudentFirstRowDetails = By.xpath("(//tr[@class='tdata-row'])[1]");
+	By studentEditButton = By.xpath("//div[@class='action-tab']//div[1]//*[name()='svg']");
+	By studentUpdateSuccessMsg = By.xpath("//div[contains(text(),'Student details updated successfully')]");
+	By deleteStudentImg = By.xpath("(//*[name()='svg'][@class='delete-icon'])[1]");
+	By studentQrButton = By.xpath("(//div[@class='cursor-pointer'])[3]");
+	By downloadPngButton = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='QR Code'])[1]/following::button[1]");
+	By qrCloseButton = By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='QR Code'])[1]/following::*[name()='svg'][1]");
+	By studentDeleteButton = By.xpath("(//div[@class='cursor-pointer'])[2]");
+	By confirmDeleteButton = By.xpath("//button[normalize-space()='Delete']");
+	By studentDeleteSuccessMsg = By.xpath("//div[contains(text(),'Student details deleted Successfully')]");
 
 	public Students_Page(WebDriver driver) {
 		super(driver);
@@ -59,6 +73,10 @@ public class Students_Page extends BasePage {
 		logger.info("Starting test: Student Creation");
 		click(addStudentBtn);
 		logger.debug("Clicked on Add Student button");
+	}
+	
+	public void click_delete_student_image() {
+		click(deleteStudentImg);
 	}
 
 	public void file_Upload(String imagePath) {
@@ -150,6 +168,75 @@ public class Students_Page extends BasePage {
 		validateSuccessMessage(studentCreateSuccessMsg, "Student detail created Successfully");
 	}
 	
+	public void validate_student_update_success_message() {
+		validateSuccessMessage(studentUpdateSuccessMsg, "Student details updated successfully");
+	}
+	
+	public void select_search_option(String StudentId) {
+		searchBy(SearchstudentId, StudentId);
+	}
+	
+	public void enter_id_in_search_input(String SearchInput) {
+		type(searchInput, SearchInput);
+	}
+	
+	public void search_result(String expectedId) {
+		WebElement firstRowDetails = WaitUtils.waitForVisibility(StudentFirstRowDetails);
+
+		String firstRowText = firstRowDetails.getText();
+
+		boolean isIdPresent = firstRowText.contains(expectedId);
+		Assert.assertTrue(isIdPresent, "Search result not found ");
+	}
+	
+	public void click_edit_button() {
+		click(studentEditButton);
+	}
+	
+	public void click_qr_button() {
+		click(studentQrButton);
+	}
+	
+	public void click_download_as_png_button() {
+		click(downloadPngButton);
+	}
+	
+	public void click_download_qr_close_button(){
+		click(qrCloseButton);
+	}
+	
+	public void verify_student_qr_file_is_downloaded() {
+		verify_qr_file_is_downloaded("INS004_S_QR_");
+	}
+	
+	public void click_delete_button() {
+		click(studentDeleteButton);
+	}
+	
+	public void click_confirm_delete_button() {
+		click(confirmDeleteButton);
+	}
+	
+	public void validate_busAttendant_delete_success_message() {
+		validateSuccessMessage(studentDeleteSuccessMsg,"Student details deleted Successfully");
+	}
+	
+	public void verify_qr_file_is_downloaded(String prefix) {
+		String downloadPath = "C:\\Users\\DELL\\Downloads";
+		File folder = new File(downloadPath);
+
+		File[] files = folder.listFiles((dir, name) -> name.startsWith(prefix) && name.endsWith(".png"));
+
+		assert files != null : "Download folder is empty or not accessible";
+		assert files.length > 0 : "No PNG files found with prefix: " + prefix;
+
+		File downloadedFile = files[files.length - 1];
+
+		assert downloadedFile.exists() : "Downloaded file does not exist";
+		assert downloadedFile.length() > 0 : "Downloaded file is empty";
+
+		System.out.println("File downloaded successfully: " + downloadedFile.getName());
+	}
 	
 	public void scroll_Down_01() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
