@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.Student_Creation_Positive_Test">
+      <class name="general_settings.bus_stops.BusStopCreationTest">
         <methods>
-          <include name="download_bus_attendant_qr_code"/>
           <include name="tearDown"/>
           <include name="launchBrowser"/>
+          <include name="create_class" invocation-numbers="0"/>
         </methods>
-      </class> <!-- test.Student_Creation_Positive_Test -->
+      </class> <!-- general_settings.bus_stops.BusStopCreationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
