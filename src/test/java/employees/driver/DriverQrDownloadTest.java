@@ -3,7 +3,7 @@ package employees.driver;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class DriverQrDownloadTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class DriverQrDownloadTest extends BaseClass {
 	@Test(priority = 1)
 	public void download_driver_qr_code() throws InterruptedException {
 
-		Employees_Page qr = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage qr = new EmployeesPage(BaseClass.getDriver());
 
 		qr.click_driver_header();
 		qr.search_employee("S");

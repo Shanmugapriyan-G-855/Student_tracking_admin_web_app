@@ -2,7 +2,7 @@ package bulk_upload;
 
 import org.testng.annotations.Test;
 
-import pages.GeneralSettings_Page;
+import pages.GeneralSettingsPage;
 import utils.BaseClass;
 
 public class BusStopBulkUpload extends BaseClass {
@@ -12,7 +12,7 @@ public class BusStopBulkUpload extends BaseClass {
 
 		perform_valid_login();
 
-		GeneralSettings_Page bulk_upload = new GeneralSettings_Page(BaseClass.getDriver());
+		GeneralSettingsPage bulk_upload = new GeneralSettingsPage(BaseClass.getDriver());
 		
 		bulk_upload.click_general_settings();
 		bulk_upload.click_bus_stops();

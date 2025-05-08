@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class GateKeeperCreationTest extends BaseClass {
 
@@ -19,7 +19,7 @@ public class GateKeeperCreationTest extends BaseClass {
 	public void create_gate_keeper(String imagePath, String idNumber, String name, String countryCode, String mobileNo,
 			String bloogGroup, String gkPassword, String mobileNoInList) {
 
-		Employees_Page create = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage create = new EmployeesPage(BaseClass.getDriver());
 
 		create.click_gate_keeper_header();
 		create.click_AddNew_Button();

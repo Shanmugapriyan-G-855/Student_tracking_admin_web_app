@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class TeacherCreationTest extends BaseClass {
 
@@ -19,7 +19,7 @@ public class TeacherCreationTest extends BaseClass {
 	public void create_teacher(String imagePath, String idNumber, String name, String countryCode, String mobileNumber,
 			String bloodGroup, String teacherPassword, String mobileNoInList) {
 
-		Employees_Page create = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage create = new EmployeesPage(BaseClass.getDriver());
 
 		create.click_teacher_header();
 		create.click_AddNew_Button();

@@ -3,7 +3,7 @@ package general_settings.classes;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import pages.GeneralSettings_Page;
+import pages.GeneralSettingsPage;
 import utils.BaseClass;
 
 public class ClassCreationTest extends BaseClass{
@@ -18,7 +18,7 @@ public class ClassCreationTest extends BaseClass{
 	@Test(priority =1,dataProvider = "ClassesData")
 	public void create_class(String className, String roomNumber, String teacherName) throws InterruptedException {
 		
-		GeneralSettings_Page create = new GeneralSettings_Page(BaseClass.getDriver());
+		GeneralSettingsPage create = new GeneralSettingsPage(BaseClass.getDriver());
 		
 		create.click_general_settings();
 		create.click_classes();

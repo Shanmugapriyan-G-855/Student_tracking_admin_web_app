@@ -3,7 +3,7 @@ package students;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Students_Page;
+import pages.StudentsPage;
 
 public class StudentDeletionTest extends BaseClass {
 	
@@ -15,7 +15,7 @@ public class StudentDeletionTest extends BaseClass {
 	@Test(priority = 4)
 	public void delete_bus_attendant() throws InterruptedException {
 		
-		Students_Page delete = new Students_Page(BaseClass.getDriver());
+		StudentsPage delete = new StudentsPage(BaseClass.getDriver());
 		
 		delete.click_students_section();
 		delete.search_student("EWW");

@@ -10,9 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
-public class GeneralSettings_Page extends BasePage{
+public class GeneralSettingsPage extends BasePage{
 	
-	private static final Logger logger = LoggerFactory.getLogger(GeneralSettings_Page.class);
+	private static final Logger logger = LoggerFactory.getLogger(GeneralSettingsPage.class);
 	
 	private By GeneralSettingsHeader = By.xpath("//span[normalize-space()='General-settings']");
 	private By Classes = By.xpath("(//span[normalize-space()='Classes'])[1]");
@@ -59,7 +59,7 @@ public class GeneralSettings_Page extends BasePage{
 	
 	
 	
-	public GeneralSettings_Page(WebDriver driver) {
+	public GeneralSettingsPage(WebDriver driver) {
 		super(driver);
 	}
 	

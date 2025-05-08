@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class DriverUpdationTest extends BaseClass {
 	
@@ -19,7 +19,7 @@ public class DriverUpdationTest extends BaseClass {
 	public void update_driver(String updateImagePath, String updateName, String updateMobileNumber)
 			throws InterruptedException {
 
-		Employees_Page update = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage update = new EmployeesPage(BaseClass.getDriver());
 		
 		update.click_driver_header();
 		update.search_employee("DRIVER01");

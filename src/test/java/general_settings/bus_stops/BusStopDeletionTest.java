@@ -2,7 +2,7 @@ package general_settings.bus_stops;
 
 import org.testng.annotations.Test;
 
-import pages.GeneralSettings_Page;
+import pages.GeneralSettingsPage;
 import utils.BaseClass;
 
 public class BusStopDeletionTest extends BaseClass{
@@ -16,7 +16,7 @@ public class BusStopDeletionTest extends BaseClass{
 	@Test(priority =1)
 	public void delete_bus_stop() throws InterruptedException {
 		
-		GeneralSettings_Page delete = new GeneralSettings_Page(BaseClass.getDriver());
+		GeneralSettingsPage delete = new GeneralSettingsPage(BaseClass.getDriver());
 		
 		delete.click_general_settings();
 		delete.click_bus_stops();

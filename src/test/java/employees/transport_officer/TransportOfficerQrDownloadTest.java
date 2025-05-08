@@ -3,7 +3,7 @@ package employees.transport_officer;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class TransportOfficerQrDownloadTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class TransportOfficerQrDownloadTest extends BaseClass {
 	@Test(priority=1)
 	public void download_transport_officer_qr_code() throws InterruptedException {
 
-		Employees_Page qr = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage qr = new EmployeesPage(BaseClass.getDriver());
 
 		qr.click_transport_officer_header();
 		qr.search_employee("TO01");

@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Buses_Page;
+import pages.BusesPage;
 
 public class BusAllocationTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class BusAllocationTest extends BaseClass {
 	public void student_n_employee_allocation(String busNumber, String route, String driverName,
 			String busAttendantName) throws InterruptedException {
 
-		Buses_Page allocate = new Buses_Page(BaseClass.getDriver());
+		BusesPage allocate = new BusesPage(BaseClass.getDriver());
 
 		allocate.click_buses_section();
 		allocate.search_bus(busNumber);

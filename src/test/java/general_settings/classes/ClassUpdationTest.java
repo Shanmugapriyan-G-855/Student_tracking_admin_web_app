@@ -3,7 +3,7 @@ package general_settings.classes;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import pages.GeneralSettings_Page;
+import pages.GeneralSettingsPage;
 import utils.BaseClass;
 
 public class ClassUpdationTest extends BaseClass {
@@ -18,7 +18,7 @@ public class ClassUpdationTest extends BaseClass {
 	@Test(priority = 1, dataProvider = "ClassesData")
 	public void update_class(String className, String roomNumber, String teacherName) throws InterruptedException {
 
-		GeneralSettings_Page edit = new GeneralSettings_Page(BaseClass.getDriver());
+		GeneralSettingsPage edit = new GeneralSettingsPage(BaseClass.getDriver());
 
 		edit.click_general_settings();
 		edit.click_classes();

@@ -11,9 +11,9 @@ import org.testng.Assert;
 
 import utils.BaseClass;
 
-public class Employees_Page extends BasePage {
+public class EmployeesPage extends BasePage {
 
-	private static final Logger logger = LoggerFactory.getLogger(Employees_Page.class);
+	private static final Logger logger = LoggerFactory.getLogger(EmployeesPage.class);
 
 	private By CompanyLogo = By.xpath("//img[@class='img-fluid']");
 	private By AddNewBtn = By.xpath("//button[normalize-space()='+ Add new']");
@@ -89,7 +89,7 @@ public class Employees_Page extends BasePage {
 	private By confirmUploadButton = By.xpath("//button[contains(text(),'Upload')]");
 	private By validateFileUploadedSuccessfullyMsg = By.xpath("//div[contains(text(),'File uploaded Sucessfully')]");
 
-	public Employees_Page(WebDriver driver) {
+	public EmployeesPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -444,7 +444,7 @@ public class Employees_Page extends BasePage {
 	
 	public void search_employee(String EmployeeId) throws InterruptedException {
 		
-		Employees_Page search = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage search = new EmployeesPage(BaseClass.getDriver());
 
 		search.select_search_option("Employee ID");
 		Thread.sleep(2500);

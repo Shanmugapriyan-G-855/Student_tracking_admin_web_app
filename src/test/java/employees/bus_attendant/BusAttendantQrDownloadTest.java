@@ -3,7 +3,7 @@ package employees.bus_attendant;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class BusAttendantQrDownloadTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class BusAttendantQrDownloadTest extends BaseClass {
 	@Test(priority = 1)
 	public void download_bus_attendant_qr_code() throws InterruptedException {
 
-		Employees_Page qr = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage qr = new EmployeesPage(BaseClass.getDriver());
 
 		qr.search_employee("BA300");
 		qr.click_qr_button();

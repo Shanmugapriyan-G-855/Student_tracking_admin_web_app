@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Buses_Page;
+import pages.BusesPage;
 
 public class BusCreationTest extends BaseClass {
 
@@ -16,7 +16,7 @@ public class BusCreationTest extends BaseClass {
 	@Test(priority = 1, dataProvider = "createBusData")
 	public void create_bus(String busNumber, String vehicleNumber, String busCapacity) {
 
-		Buses_Page create = new Buses_Page(BaseClass.getDriver());
+		BusesPage create = new BusesPage(BaseClass.getDriver());
 
 		create.click_buses_section();
 		create.click_add_student_button();

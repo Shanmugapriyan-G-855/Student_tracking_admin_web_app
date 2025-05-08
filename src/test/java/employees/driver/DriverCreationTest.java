@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class DriverCreationTest extends BaseClass {
 
@@ -19,7 +19,7 @@ public class DriverCreationTest extends BaseClass {
 	public void create_driver(String imagePath, String driverId, String driverName, String countryCode,
 			String driverMobileNo, String bloodGroup, String driverPassword, String expectedMobileNoInList) {
 
-		Employees_Page create = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage create = new EmployeesPage(BaseClass.getDriver());
 
 		create.click_driver_header();
 		create.click_AddNew_Button();

@@ -3,7 +3,7 @@ package employees.driver;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class DriverDeletionTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class DriverDeletionTest extends BaseClass {
 	@Test(priority = 1)
 	public void delete_driver() throws InterruptedException {
 
-		Employees_Page delete = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage delete = new EmployeesPage(BaseClass.getDriver());
 		
 		delete.click_driver_header();
 		delete.search_employee("DRIVER01");

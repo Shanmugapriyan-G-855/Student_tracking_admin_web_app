@@ -3,7 +3,7 @@ package general_settings.routes;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import pages.GeneralSettings_Page;
+import pages.GeneralSettingsPage;
 import utils.BaseClass;
 
 public class RouteUpdationTest extends BaseClass{
@@ -18,7 +18,7 @@ public class RouteUpdationTest extends BaseClass{
 	@Test(priority =1,dataProvider = "RoutesData")
 	public void create_class(String routeName, String firstStop, String secondStop) throws InterruptedException {
 		
-		GeneralSettings_Page route = new GeneralSettings_Page(BaseClass.getDriver());
+		GeneralSettingsPage route = new GeneralSettingsPage(BaseClass.getDriver());
 		
 		route.click_general_settings();
 		route.click_routes();

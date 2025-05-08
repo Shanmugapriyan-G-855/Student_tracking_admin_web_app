@@ -16,9 +16,9 @@ import org.testng.Assert;
 import utils.BaseClass;
 import utils.WaitUtils;
 
-public class Students_Page extends BasePage {
+public class StudentsPage extends BasePage {
 
-	private static final Logger logger = LoggerFactory.getLogger(Students_Page.class);
+	private static final Logger logger = LoggerFactory.getLogger(StudentsPage.class);
 
 	By studentsSideBar = By.xpath("//span[normalize-space()='Students']");
 	By addStudentBtn = By.xpath("//button[normalize-space()='+ Add Student']");
@@ -74,7 +74,7 @@ public class Students_Page extends BasePage {
 
 	private String uploadedFilePath;
 
-	public Students_Page(WebDriver driver) {
+	public StudentsPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -355,7 +355,7 @@ public class Students_Page extends BasePage {
 
 	public void search_student(String studentId) throws InterruptedException {
 
-		Students_Page search = new Students_Page(BaseClass.getDriver());
+		StudentsPage search = new StudentsPage(BaseClass.getDriver());
 
 		search.select_search_option("Student ID");
 		Thread.sleep(2000);

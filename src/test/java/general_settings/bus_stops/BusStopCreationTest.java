@@ -3,7 +3,7 @@ package general_settings.bus_stops;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import pages.GeneralSettings_Page;
+import pages.GeneralSettingsPage;
 import utils.BaseClass;
 
 public class BusStopCreationTest extends BaseClass{
@@ -18,7 +18,7 @@ public class BusStopCreationTest extends BaseClass{
 	@Test(priority =1,dataProvider = "busStopsData")
 	public void create_class(String latitude, String longitude, String stopName) throws InterruptedException {
 		
-		GeneralSettings_Page bs = new GeneralSettings_Page(BaseClass.getDriver());
+		GeneralSettingsPage bs = new GeneralSettingsPage(BaseClass.getDriver());
 		
 		bs.click_general_settings();
 		bs.click_bus_stops();

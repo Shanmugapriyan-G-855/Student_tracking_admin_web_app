@@ -3,7 +3,7 @@ package employees.gate_keeper;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class GateKeeperDeletionTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class GateKeeperDeletionTest extends BaseClass {
 	@Test(priority = 1)
 	public void delete_gate_keeper() throws InterruptedException {
 
-		Employees_Page delete = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage delete = new EmployeesPage(BaseClass.getDriver());
 		
 		delete.click_gate_keeper_header();
 		delete.search_employee("GK01");

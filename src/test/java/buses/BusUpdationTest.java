@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Buses_Page;
+import pages.BusesPage;
 
 public class BusUpdationTest extends BaseClass {
 	
@@ -16,7 +16,7 @@ public class BusUpdationTest extends BaseClass {
 	@Test(priority = 1, dataProvider = "updateBusInfoData")
 	public void update_bus(String ExistsbusNumber ,String busNumber, String vehicleNumber, String busCapacity) throws InterruptedException {
 
-		Buses_Page update = new Buses_Page(BaseClass.getDriver());
+		BusesPage update = new BusesPage(BaseClass.getDriver());
 
 		update.click_buses_section();
 		update.search_bus(ExistsbusNumber);

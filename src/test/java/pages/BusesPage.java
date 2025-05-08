@@ -12,9 +12,9 @@ import org.testng.Assert;
 import utils.BaseClass;
 import utils.WaitUtils;
 
-public class Buses_Page extends BasePage {
+public class BusesPage extends BasePage {
 
-	private static final Logger logger = LoggerFactory.getLogger(Buses_Page.class);
+	private static final Logger logger = LoggerFactory.getLogger(BusesPage.class);
 
 	By BusesHeader = By.xpath("(//span[normalize-space()='Buses'])[1]");
 	By BusAddNewButton = By.xpath("(//button[normalize-space()='+ Add New'])[1]");
@@ -43,7 +43,7 @@ public class Buses_Page extends BasePage {
 	By status = By.xpath("(//h6[normalize-space()='Status*'])[1]");
 	By SelectCheckBox = By.xpath("(//input[@type='checkbox'])[1]");
 
-	public Buses_Page(WebDriver driver) {
+	public BusesPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -170,7 +170,7 @@ public class Buses_Page extends BasePage {
 
 	public void search_bus(String BusNumber) throws InterruptedException {
 
-		Buses_Page search = new Buses_Page(BaseClass.getDriver());
+		BusesPage search = new BusesPage(BaseClass.getDriver());
 
 		search.enter_bus_number_in_search_input(BusNumber);
 		Thread.sleep(3000);

@@ -3,7 +3,7 @@ package students;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Students_Page;
+import pages.StudentsPage;
 
 public class StudentQrDownloadTest extends BaseClass {
 
@@ -15,7 +15,7 @@ public class StudentQrDownloadTest extends BaseClass {
 	@Test(priority = 1)
 	public void download_bus_attendant_qr_code() throws InterruptedException {
 
-		Students_Page qr = new Students_Page(BaseClass.getDriver());
+		StudentsPage qr = new StudentsPage(BaseClass.getDriver());
 		
 		qr.click_students_section();
 		qr.search_student("S10");

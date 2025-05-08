@@ -3,7 +3,7 @@ package bulk_upload;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Students_Page;
+import pages.StudentsPage;
 
 public class StudentBulkUploadTest extends BaseClass {
 
@@ -12,7 +12,7 @@ public class StudentBulkUploadTest extends BaseClass {
 
 		perform_valid_login();
 
-		Students_Page bulk_upload = new Students_Page(BaseClass.getDriver());
+		StudentsPage bulk_upload = new StudentsPage(BaseClass.getDriver());
 
 		bulk_upload.click_upload_button();
 		bulk_upload.click_download_template_button();

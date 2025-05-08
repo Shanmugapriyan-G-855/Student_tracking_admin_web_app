@@ -3,7 +3,7 @@ package employees.transport_officer;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class TransportOfficerDeletionTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class TransportOfficerDeletionTest extends BaseClass {
 	@Test(priority = 1)
 	public void delete_transport_officer() throws InterruptedException {
 
-		Employees_Page delete = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage delete = new EmployeesPage(BaseClass.getDriver());
 
 		delete.click_transport_officer_header();
 		delete.search_employee("TO01");

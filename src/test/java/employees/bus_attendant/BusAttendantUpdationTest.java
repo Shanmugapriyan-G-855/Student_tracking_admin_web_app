@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class BusAttendantUpdationTest extends BaseClass {
 
@@ -19,7 +19,7 @@ public class BusAttendantUpdationTest extends BaseClass {
 	public void update_bus_attendant(String updateImagePath, String updateName, String updateMobileNumber)
 			throws InterruptedException {
 
-		Employees_Page update = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage update = new EmployeesPage(BaseClass.getDriver());
 
 		update.search_employee("BA300");
 		update.click_edit_button();

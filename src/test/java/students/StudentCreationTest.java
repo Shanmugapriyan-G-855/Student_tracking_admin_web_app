@@ -4,7 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Students_Page;
+import pages.StudentsPage;
 
 public class StudentCreationTest extends BaseClass {
 
@@ -19,7 +19,7 @@ public class StudentCreationTest extends BaseClass {
 			String dob, String gender, String email, String nationality, String address, String mode, String busStop)
 			throws InterruptedException {
 
-		Students_Page student = new Students_Page(BaseClass.getDriver());
+		StudentsPage student = new StudentsPage(BaseClass.getDriver());
 
 		student.click_students_section();
 		student.click_add_student_button();

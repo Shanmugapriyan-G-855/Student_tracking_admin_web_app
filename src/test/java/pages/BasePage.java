@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utils.WaitUtils;
 
@@ -11,6 +12,7 @@ public abstract class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver, 3000);
+        PageFactory.initElements(driver, this);
     }
 
     protected void click(By locator) {

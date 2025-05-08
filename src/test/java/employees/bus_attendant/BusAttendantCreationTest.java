@@ -4,7 +4,7 @@ import java.util.concurrent.TimeoutException;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 import utils.BaseClass;
 
 public class BusAttendantCreationTest extends BaseClass {
@@ -21,7 +21,7 @@ public class BusAttendantCreationTest extends BaseClass {
 			String mobileNumber, String bloodGroup, String password, String expectedMobileInList)
 			throws TimeoutException {
 
-		Employees_Page create = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage create = new EmployeesPage(BaseClass.getDriver());
 
 		create.click_AddNew_Button();
 		create.file_Upload(imagePath);

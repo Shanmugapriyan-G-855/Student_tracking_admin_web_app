@@ -3,7 +3,7 @@ package employees.gate_keeper;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Employees_Page;
+import pages.EmployeesPage;
 
 public class GateKeeperQrDownloadTest extends BaseClass {
 
@@ -17,7 +17,7 @@ public class GateKeeperQrDownloadTest extends BaseClass {
 	@Test(priority = 1)
 	public void download_gate_keeper_qr_code() throws InterruptedException {
 
-		Employees_Page qr = new Employees_Page(BaseClass.getDriver());
+		EmployeesPage qr = new EmployeesPage(BaseClass.getDriver());
 
 		qr.click_gate_keeper_header();
 		qr.search_employee("GK01");

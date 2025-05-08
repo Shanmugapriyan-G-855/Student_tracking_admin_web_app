@@ -3,7 +3,7 @@ package buses;
 import org.testng.annotations.Test;
 
 import utils.BaseClass;
-import pages.Buses_Page;
+import pages.BusesPage;
 
 public class BusStudentAssignTest extends BaseClass {
 
@@ -15,7 +15,7 @@ public class BusStudentAssignTest extends BaseClass {
 	@Test(priority = 1)
 	public void assign_student() throws InterruptedException {
 
-		Buses_Page assign = new Buses_Page(BaseClass.getDriver());
+		BusesPage assign = new BusesPage(BaseClass.getDriver());
 
 		assign.click_buses_section();
 		assign.search_bus("B001");
