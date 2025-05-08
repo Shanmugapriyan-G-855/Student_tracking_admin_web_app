@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +35,26 @@ public class GeneralSettings_Page extends BasePage{
 	private By BusStopCreateSuccessMsg = By.xpath("(//div[contains(text(),'Bus Stop detail created Successfully')])[1]");
 	private By BusStopUpdateSuccessMsg = By.xpath("(//div[contains(text(),'updated successfully')])[1]");
 	private By BusStopDeleteSuccessMsg = By.xpath("(//div[contains(text(),'Bus Stop details deleted Successfully')])[1]");
+	
+	private By UploadButton = By.xpath("(//span[@class='upload-txt'])[1]");
+	private By downloadTemplateBtn = By.xpath("//p[@class='download-template']");
+	private By uploadExcelFile = By.xpath("(//input[@type='file'])[1]");
+	private String uploadedFilePath;
+	private By verifyUploadedFileName = By.xpath("(//p[@class='file-name'])[1]");
+	private By confirmUploadButton = By.xpath("(//button[@type='submit'])[1]");
+	private By validateFileUploadedSuccessfullyMsg = By.xpath("//div[contains(text(),'File uploaded Sucessfully')]");
+	
+	private By Routes = By.xpath("(//span[normalize-space()='Routes'])[1]");
+	private By RouteNameField = By.xpath("(//input[@name='optionData.[0].route_name'])[1]");
+	private By FirstStopSelection = By.xpath("(//select[@name='optionData.[0].stop_name[0]'])[1]");
+	private By AddStopButton = By.xpath("(//span[@class='pointer underline'])[1]");
+	private By SecondStopSelection = By.xpath("(//select[@name='optionData.[0].stop_name[1]'])[1]");
+	private By RouteCreateSuccessMsg = By.xpath("(//div[contains(text(),'Bus Route detail created Successfully')])[1]");
+	private By RouteUpdateSuccessMsg = By.xpath("(//div[contains(text(),'updated successfully')])[1]");
+	private By RouteDeleteSuccessMsg = By.xpath("(//div[contains(text(),'Bus Route details deleted Successfully')])[1]");
+	
+	
+	
 	
 	
 	
@@ -129,6 +151,91 @@ public class GeneralSettings_Page extends BasePage{
 	public void validate_bus_stop_delete_success_message() {
 		validateSuccessMessage(BusStopDeleteSuccessMsg, "Bus Stop details deleted Successfully");
 	}
+	
+	public void click_upload_button() {
+		click(UploadButton);
+	}
+	
+	public void click_download_template_button() throws InterruptedException {
+		Thread.sleep(1000);
+		click(downloadTemplateBtn);
+	}
+	
+	public void verify_download_template() {
+		String downloadPath = "C:\\Users\\DELL\\Downloads";
+		File folder = new File(downloadPath);
+
+		File[] files = folder.listFiles((dir, name) -> name.startsWith("download") && name.endsWith(".xlsx"));
+
+		assert files != null && files.length > 0 : "Template file not found in the download folder";
+
+		File downloadedFile = files[files.length - 1];
+
+		assert downloadedFile.exists() : "Downloaded template file does not exist";
+		assert downloadedFile.length() > 0 : "Downloaded template file is empty";
+
+		System.out.println("Template file downloaded successfully: " + downloadedFile.getName());
+
+	}
+	
+	public void upload_xlsx_file(String filePath) {
+		uploadedFilePath = filePath;
+		WebElement fileInput = driver.findElement(uploadExcelFile);
+		fileInput.sendKeys(filePath);
+	}
+	
+	public void verify_uploaded_file_name() {
+		WebElement fileNameLabel = waitUtils.waitForVisibility(verifyUploadedFileName);
+		String displayedFileName = fileNameLabel.getText();
+
+		String expectedFileName = new File(uploadedFilePath).getName();
+
+		Assert.assertTrue(displayedFileName.contains(expectedFileName),
+				"Uploaded file name not displayed correctly. Found: " + displayedFileName);
+	}
+	
+
+	public void click_confirm_upload_button() {
+		click(confirmUploadButton);
+	}
+	
+	public void validate_file_uploaded_successfully_message() {
+		validateSuccessMessage(validateFileUploadedSuccessfullyMsg, "File uploaded Sucessfully");
+	}
+	
+	public void click_routes() {
+		click(Routes);
+	}
+	
+	public void enter_route_name(String routeName) {
+		type(RouteNameField,routeName);
+	}
+	
+	public void select_first_stop(String firstStop) {
+		selectOption(FirstStopSelection, firstStop);
+	}
+	
+	public void click_add_stop() throws InterruptedException {
+		click(AddStopButton);
+		Thread.sleep(1000);
+	}
+	
+	public void select_second_stop(String secondStop) {
+		selectOption(SecondStopSelection, secondStop);
+	}
+	
+	public void validate_route_create_successfully_message() {
+		validateSuccessMessage(RouteCreateSuccessMsg, "Bus Route detail created Successfully");
+	}
+	
+	public void validate_route_update_successfully_message() {
+		validateSuccessMessage(RouteUpdateSuccessMsg, "updated successfully");
+	}
+	
+	public void validate_route_delete_success_message() {
+		validateSuccessMessage(RouteDeleteSuccessMsg, "Bus Route details deleted Successfully");
+	}
+
 	
 	private String validateSuccessMessage(By locator, String expectedMessage) {
 		try {
